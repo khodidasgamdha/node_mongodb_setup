@@ -1,5 +1,5 @@
 {
-    "name": "node_mongoose_setup",
+    "name": "node_mongodb_setup",
     "version": "1.0.0",
     "description": "Nodejs Setup with MongoDB (mongoose)",
     "main": "src/app.js",
