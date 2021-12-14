@@ -1,0 +1,4 @@
+node_modules
+
+# Request Log - morgan
+app.log

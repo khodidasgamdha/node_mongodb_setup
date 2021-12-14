@@ -1,0 +1,24 @@
+{
+    "name": "node_mongoose_setup",
+    "version": "1.0.0",
+    "description": "Nodejs Setup with MongoDB (mongoose)",
+    "main": "src/app.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "nodemon src/app.js"
+    },
+    "author": "Khodidas Gamdha",
+    "license": "ISC",
+    "dependencies": {
+        "body-parser": "^1.19.1",
+        "chalk": "^4.1.0",
+        "dotenv": "^10.0.0",
+        "express": "^4.17.1",
+        "find-free-port": "^2.0.0",
+        "mongoose": "^6.1.1",
+        "morgan": "^1.10.0",
+        "multer": "^1.4.4",
+        "node-cron": "^3.0.0",
+        "prompt-confirm": "^2.0.4"
+    }
+}

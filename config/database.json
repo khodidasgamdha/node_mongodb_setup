@@ -1,0 +1,17 @@
+{
+    "development": {
+        "dbURI": "mongodb://localhost:27017/database_development",
+        "useNewUrlParser": true,
+        "useUnifiedTopology": true
+    },
+    "test": {
+        "dbURI": "mongodb://localhost:27017/database_test",
+        "useNewUrlParser": true,
+        "useUnifiedTopology": true
+    },
+    "production": {
+        "dbURI": "mongodb://localhost:27017/database_production",
+        "useNewUrlParser": true,
+        "useUnifiedTopology": true
+    }
+}
