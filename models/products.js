@@ -5,15 +5,19 @@ const productSchema = mongoose.Schema({
         type: String,
         required: [true, "Please Enter product Name"],
         trim: true,
+        uppercase: true,
+        maxLength: [15, 'Name should not be more than 15 char.']
     },
     description: {
         type: String,
         required: [true, "Please Enter product Description"],
+        lowercase: true,
+        minLength: [15, 'Description should be more than 15 char.']
     },
     price: {
         type: Number,
         required: [true, "Please Enter product Price"],
-        maxLength: [8, "Price cannot exceed 8 characters"],
+        max: [8, "Price should not be more tham 8 num."],
     },
     ratings: {
         type: Number,
@@ -25,7 +29,7 @@ const productSchema = mongoose.Schema({
     },
     stock: {
         type: Number,
-        maxLength: [4, "Stock cannot exceed 4 characters"],
+        max: [4, "Stock should not be more tham 4 num."],
         default: 1,
     },
     numOfReviews: {

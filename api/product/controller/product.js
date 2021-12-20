@@ -6,12 +6,30 @@ const Product = require("../../../models/products");
 
 module.exports = {
     getProduct: async (req, res, next) => {
+        const { itemsPerPage, pageNum, sort } = req.query;
         try {
-            const products = await Product.find();
+            
+            // pagination
+            const limit = itemsPerPage ? parseInt(itemsPerPage) : 10;
+            const skip = parseInt(pageNum-1) > 0 ? parseInt(pageNum-1) * limit : 0;
+
+            // sorting
+            const sortName = sort.split(":")[0];
+            const sortOrder = sort.split(":")[1];
+
+            const products = await Product.find({}, 
+                ['name', 'description', 'price', 'ratings', 'stock', 'numOfReviews', 'image'], 
+                { limit, skip }
+            ).sort([[sortName, sortOrder]]);
+
+            // total items count
+            const count = await Product.countDocuments({}).exec();
             
             res.status(200).send({
                 data: products,
-                message: "Products Found Successfully...",
+                pageNum: parseInt(pageNum),
+                totalItems: count,
+                totalPage: Math.ceil(count/limit)
             });
         } catch (error) {
             return next(new ErrorHandler(error, 501));

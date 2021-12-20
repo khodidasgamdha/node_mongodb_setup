@@ -1,10 +1,7 @@
 const mongoose = require("mongoose");
 const chalk = require("chalk");
-const { 
-    dbURI, 
-    useNewUrlParser, 
-    useUnifiedTopology 
-} = require("../config/database.json")[process.env.NODE_ENV];
+const { dbURI, useNewUrlParser, useUnifiedTopology } =
+    require("../config/database.json")[process.env.NODE_ENV];
 
 mongoose
     .connect(dbURI, {
@@ -12,8 +9,8 @@ mongoose
         useUnifiedTopology,
     })
     .then(() => {
-        console.log(chalk.green("Databse Connection Successful"));
+        console.log(chalk.green("Database Connected Successfully..."));
     })
-    .catch((err) => {
-        console.log(chalk.yellowBright(err));
+    .catch((error) => {
+        console.log(chalk.yellowBright(error));
     });
